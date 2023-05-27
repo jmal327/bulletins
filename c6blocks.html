@@ -20,34 +20,34 @@ th {
   background-color: #4CAF50;
   color: white;
 }
+
+h1{
+  margin: auto;
+  text-align: center;
+}
+
+thead td {
+  background-color: #4CAF50;
+  color: white;
+}
   </style>
   <body>
-    <table id="myTable"><tbody>
-	  <tr>
-  <th width="10%">Engine</th>
-  <th width="10%">Cubic Inches</th>
-  <th width="20%">Horsepower</th>
-  <th width="20%">Torque</th>
-  <th width="10%">Bore</th>
-  <th width="10%">Stroke</th>
-  <th width="20%">Year Range</th>
-</tr>
-	</tbody>  </table>
+    <h1>C5 engine choices</h1>
+    <table id="myTable"></table>
 
     <script>
 function generateTable(table, data) {
-  for(let dataRow of data){
-    let hr = table.insertRow();
-    for(col in dataRow){
-      let cell = hr.insertCell();
-      let text = document.createTextNode(col);
-      cell.appendChild(text);
-    }
-    break;
+  let header = table.createTHead();
+  let hr = header.insertRow();
+  for (let col in data[0]) {
+    let headerCol = hr.insertCell();
+    let headerText = document.createTextNode(col);
+    headerCol.appendChild(headerText);
   }
 
+  let body = table.createTBody();
   for (let element of data) {
-    let row = table.insertRow();
+    let row = body.insertRow();
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
