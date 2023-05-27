@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Table</title>
+  </head>
+  <body>
+    <table id="myTable"></table>
+
+    <script>
+function generateTable(table, data) {
+  for (let element of data) {
+    let row = table.insertRow();
+    for (key in element) {
+      let cell = row.insertCell();
+      let text = document.createTextNode(element[key]);
+      cell.appendChild(text);
+    }
+  }
+}
+
+let table = document.createElement("table");
+let data = [
+  { Engine: "LS2 6.0L V8", "Cubic Inches": "364.1 ci", Horsepower: "400 hp @ 6,000 RPM", Torque: "400 lb-ft @ 4,400 RPM", Bore: "4.00 inches (101.6 mm)", Stroke: "3.62 inch (92mm)", "Year Range": "2005-2007" },
+  { Engine: "LS3 6.2L V8", "Cubic Inches": "376 ci", Horsepower: "430 hp @ 5,900 RPM (436 hp with optional exhaust)", Torque: "424 lb-ft @ 4,600 RPM (428 lb-ft with optional exhaust)", Bore: "4.06 inches (103.25 mm)", Stroke: "3.62 inches (92 mm)", "Year Range": "2008-2013" },
+  { Engine: "LS7 7.0L V8 (Z06)", "Cubic Inches": "427 ci", Horsepower: "505 hp @ 6,300 RPM (2006-2010), 505 hp @ 6,400 RPM (2011-2013)", Torque: "470 lb-ft @ 4,800 RPM (2006-2010), 470 lb-ft @ 5,200 RPM (2011-2013)", Bore: "4.125 inches (104.775 mm)", Stroke: "4.00 inches (101.6 mm)", "Year Range": "2006-2013" },
+  { Engine: "LS9 Supercharged V8 (ZR1)", "Cubic Inches": "376 ci", Horsepower: "638 hp @ 6,500 RPM", Torque: "604 lb-ft @ 3,800 RPM", Bore: "4.065 inches (103.25 mm)", Stroke: "3.622 inches (92 mm)", "Year Range": "2009-2013" }
+];
+
+generateTable(table, data);
+document.body.appendChild(table);
+</script>
+</body>
+</html>
