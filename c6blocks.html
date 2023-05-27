@@ -39,6 +39,7 @@ function generateTable(table, data) {
     for (key in element) {
       let cell = row.insertCell();
       let text = document.createTextNode(element[key]);
+      cell.width = "20%";
       cell.appendChild(text);
     }
   }
